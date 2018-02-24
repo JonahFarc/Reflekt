@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "272366399853",
+    "firebase_url": "https://reflekt-dbda2.firebaseio.com",
+    "project_id": "reflekt-dbda2",
+    "storage_bucket": "reflekt-dbda2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272366399853:android:915e00824386040f",
+        "android_client_info": {
+          "package_name": "com.tinmoc.reflekt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272366399853-9otbed524h58dhjcm19qmh3v83lechdv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tinmoc.reflekt",
+            "certificate_hash": "6a2e061f98c5901e5d2016e610c7ff3a14a00668"
+          }
+        },
+        {
+          "client_id": "272366399853-mpucbha3ksrmng2bt8a58nr9906qnu31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASyQ4PvnHZvpotWN-x9IUm6EU9lrZea8M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272366399853-mpucbha3ksrmng2bt8a58nr9906qnu31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
