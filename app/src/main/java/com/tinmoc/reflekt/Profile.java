@@ -2,6 +2,7 @@ package com.tinmoc.reflekt;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,13 @@ public class Profile extends AppCompatActivity {
         }
 
         setProfile(currentuser);
+
+        FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        myFab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(Profile.this,EditProfile.class));
+            }
+        });
     }
 
     /**
