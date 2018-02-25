@@ -4,6 +4,7 @@ package com.tinmoc.reflekt;
  * Created by M3800 on 2/25/2018.
  */
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -67,6 +68,11 @@ public class EditProfile extends AppCompatActivity {
         ACTV.setAdapter(autoComplete);
     }
 
+    protected void backButtonClicked(View view)
+    {
+        startActivity(new Intent(EditProfile.this,Profile.class));
+        finish();
+    }
     //button press
     protected void aah(View view) {
         AutoCompleteTextView ACTV = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
@@ -76,20 +82,26 @@ public class EditProfile extends AppCompatActivity {
             database.child(interestVal).child("Interest").setValue(interestVal);
             ACTV.setText("");
         }
-        final String[] s = {""};
         Query q = mDatabaseUser;
         q.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                TextView interest = (TextView)findViewById(R.id.interests);
-                s[0] = dataSnapshot.child("Interests").getValue().toString();
+                if(addInterest(dataSnapshot.child("Interests").getValue().toString(),interestVal)){
+                      mDatabaseUser.child("Interests").setValue(dataSnapshot.child("Interests").getValue().toString().toLowerCase()+", "+interestVal);
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
+
         });
-        mDatabaseUser.setValue(s[0] + interestVal);
     }
+
+    private static boolean addInterest(String current, String addInt) {
+        int i = current.toLowerCase().indexOf(addInt.toLowerCase());
+        return i == -1;
+    }
+
 }

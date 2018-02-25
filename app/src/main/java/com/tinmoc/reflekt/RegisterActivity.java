@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -51,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_SHORT);
+                        toast.show();
                         String user_id = mAuth.getCurrentUser().getUid();
                         final DatabaseReference current_user_db = mDatabase.child(user_id);
                         current_user_db.child("Name").setValue(name_content);
@@ -64,8 +67,13 @@ public class RegisterActivity extends AppCompatActivity {
                         current_user_db.child("Interests").setValue("League of Legends, Gym, Street Wear, Classic Novels, Guitar, Eating Out");
 
 
-                        startActivity(new Intent(RegisterActivity.this,MessagingActivity.class));
+                        startActivity(new Intent(RegisterActivity.this,Profile.class));
                         finish();
+                    }
+                    else
+                    {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Registration failed!", Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                 }
             });

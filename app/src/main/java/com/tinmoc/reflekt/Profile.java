@@ -41,6 +41,7 @@ public class Profile extends AppCompatActivity {
         myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(Profile.this,EditProfile.class));
+                finish();
             }
         });
     }

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -54,7 +55,13 @@ public class LoginActivity extends AppCompatActivity{
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        Toast toast = Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_SHORT);
+                        toast.show();
                         checkUserExists();
+                    }
+                    else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Login failed!", Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                 }
             });
