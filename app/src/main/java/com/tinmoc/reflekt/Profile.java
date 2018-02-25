@@ -66,8 +66,8 @@ public class Profile extends AppCompatActivity {
                 name.setText(dataSnapshot.child("Name").getValue().toString());
 
                 TextView distance = (TextView)findViewById(R.id.distance);
-                String temp = Double.toString(distance(30.1943957, -95.5052407, 30.180115, -95.58738699999998));
-                temp = temp.substring(0,temp.indexOf(".")+3) + "KM";
+                String temp = Double.toString(distance(30.1943957, -95.5052407, 30.180115, -95.58738699999998)*0.621371);
+                temp = temp.substring(0,temp.indexOf(".")+3) + "miles";
                 distance.setText(temp);
 
                 TextView interest = (TextView)findViewById(R.id.interests);
