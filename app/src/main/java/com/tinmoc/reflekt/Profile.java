@@ -87,6 +87,7 @@ public class Profile extends AppCompatActivity {
     public void message(View view)
     {
         startActivity(new Intent(Profile.this, MessagingActivity.class));
+        finish();
     }
     // Returns distance in (km)
     private static double distance(double lat1, double lon1, double lat2, double lon2) {

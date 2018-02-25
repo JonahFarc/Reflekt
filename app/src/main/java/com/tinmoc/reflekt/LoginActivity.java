@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity{
                 if(dataSnapshot.hasChild(user_id)) {
                     Intent loginIntent =new Intent(LoginActivity.this,Profile.class);
                     startActivity(loginIntent);
+                    finish();
                 }
             }
 
@@ -78,5 +79,6 @@ public class LoginActivity extends AppCompatActivity{
     }
     public void registerButtonClicked(View view) {
         startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+        finish();
     }
 }
