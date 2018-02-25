@@ -62,6 +62,9 @@ public class MessagingActivity extends AppCompatActivity {
         };
     }
 
+    public void toProfile(View view) {
+        startActivity(new Intent(MessagingActivity.this,Profile.class));
+    }
     public void sendButtonClicked(View view)
     {
         mCurrentUser = mAuth.getCurrentUser();

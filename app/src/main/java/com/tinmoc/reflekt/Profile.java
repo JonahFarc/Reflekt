@@ -1,9 +1,11 @@
 package com.tinmoc.reflekt;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -74,6 +76,10 @@ public class Profile extends AppCompatActivity {
         });
     }
 
+    public void message(View view)
+    {
+        startActivity(new Intent(Profile.this, MessagingActivity.class));
+    }
     // Returns distance in (km)
     private static double distance(double lat1, double lon1, double lat2, double lon2) {
         double dLat = Math.toRadians(lat2 - lat1);
