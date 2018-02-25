@@ -2,7 +2,6 @@ package com.tinmoc.reflekt;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -50,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
                         String user_id = mAuth.getCurrentUser().getUid();
                         DatabaseReference current_user_db = mDatabase.child(user_id);
                         current_user_db.child("Name").setValue(name_content);
-                        startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+                        startActivity(new Intent(RegisterActivity.this,MessagingActivity.class));
                     }
                 }
             });

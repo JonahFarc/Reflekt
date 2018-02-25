@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChild(user_id)) {
-                    Intent loginIntent =new Intent(LoginActivity.this,MainActivity.class);
+                    Intent loginIntent =new Intent(LoginActivity.this,MessagingActivity.class);
                     startActivity(loginIntent);
                 }
             }
