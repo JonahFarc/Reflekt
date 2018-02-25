@@ -1,14 +1,21 @@
 package com.tinmoc.reflekt;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Profile extends AppCompatActivity {
@@ -25,32 +32,44 @@ public class Profile extends AppCompatActivity {
             return;
         }
 
-        setProfile(currentuser,currentuser);
+        setProfile(currentuser);
     }
 
     /**
      * set up activity_profile
-     * @param user
      * @param selfuser yourself
      */
-    private void setProfile(FirebaseUser user, FirebaseUser selfuser){
-        String temp = user.getDisplayName();
+    private void setProfile(FirebaseUser selfuser){
 
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
+        final DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("Users").child(selfuser.getUid());
+        Query q = currentUser;
+        q.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                TextView ageNgender = (TextView)findViewById(R.id.ageNgender);
+                ageNgender.setText(dataSnapshot.child("Age").getValue().toString() + ", " + dataSnapshot.child("Gender").getValue().toString());
 
-        TextView name = (TextView)findViewById(R.id.profileName);
-        name.setText(temp);
+                TextView bio = (TextView)findViewById(R.id.bio);
+                bio.setText(dataSnapshot.child("Bio").getValue().toString());
 
-        TextView ageNgender = (TextView)findViewById(R.id.ageNgender);
+                TextView name = (TextView)findViewById(R.id.profileName);
+                name.setText(dataSnapshot.child("Name").getValue().toString());
 
-        //if view your own profile, delta dne
-        TextView distance = (TextView)findViewById(R.id.distance);
-        if(user == selfuser){
-            distance.setText("");
-        }
+                TextView distance = (TextView)findViewById(R.id.distance);
+                distance.setText(Double.toString(distance(30.1943957, -95.5052407, 30.180115, -95.58738699999998)));
 
-        TextView bio = (TextView)findViewById(R.id.bio);
+                TextView interest = (TextView)findViewById(R.id.interests);
+                interest.setText(dataSnapshot.child("Interests").getValue().toString());
 
+                TextView looking = (TextView)findViewById(R.id.lookingfor);
+                looking.setText(dataSnapshot.child("Target_Gender").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     // Returns distance in (km)

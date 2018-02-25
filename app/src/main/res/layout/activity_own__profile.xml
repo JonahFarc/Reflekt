@@ -31,7 +31,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <Button
                         android:id="@+id/message"
                         android:layout_width="60dp"
                         android:layout_height="55dp"
@@ -45,7 +45,7 @@
                     android:gravity="center"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <Button
                         android:id="@+id/heart"
                         android:layout_width="50dp"
                         android:layout_height="42dp"
@@ -59,7 +59,7 @@
                     android:gravity="center"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <Button
                         android:id="@+id/usericon"
                         android:layout_width="60dp"
                         android:layout_height="50dp"
@@ -89,17 +89,6 @@
             android:text="age, gender"
             android:textColor="@color/black"
             android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/distance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="21dp"
-            android:text="distance km."
-            android:gravity="right"
-            android:textAlignment="gravity"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -115,17 +104,15 @@
             android:textColor="@color/colorFontDark"
             />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/lookingfor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
+    <android.support.v7.widget.RecyclerView
         android:layout_marginLeft="21dp"
         android:layout_marginRight="21dp"
-        android:text="Looking for..."
-        android:textSize="14sp"
-        />
+        android:id="@+id/lookingfors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -147,7 +134,6 @@
         android:layout_marginLeft="21dp"
         android:text="bio goes here"
         android:textSize="14sp"
-        android:layout_marginRight="21dp"
         />
 
     <LinearLayout
@@ -160,18 +146,17 @@
             android:text="Interest"
             android:textSize="22dp"
             android:layout_marginLeft="21dp"
-            android:layout_marginRight="21dp"
             android:textColor="@color/colorFontDark"
             />
     </LinearLayout>
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"
         android:id="@+id/interests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginLeft="21dp"
-        android:layout_marginRight="21dp"
-        android:text="Interest here..."
-        android:textSize="14sp"
-        />
+        android:orientation="horizontal"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+
 </LinearLayout>

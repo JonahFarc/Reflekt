@@ -43,4 +43,5 @@
 
     <string name="reflektui_status_fmt">Reflekt User: %s</string>
     <string name="reflektui_title_text">Reflekt UI Auth</string>
+    <string name="bio_here">Bio here</string>
 </resources>
