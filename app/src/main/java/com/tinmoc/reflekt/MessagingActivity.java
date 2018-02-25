@@ -66,35 +66,6 @@ public class MessagingActivity extends AppCompatActivity {
     {
         mCurrentUser = mAuth.getCurrentUser();
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
-        DatabaseReference temp = FirebaseDatabase.getInstance().getReference().child("Users");
-        temp.orderByChild("Name").addChildEventListener(new ChildEventListener() {
-        @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-            Log.d("DIINNOOOSAAUUURRRSSS",dataSnapshot.getKey());
-        }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-
-            // ...
-    });
 
         final String messageValue = editMessage.getText().toString().trim();
         editMessage.setText("");
@@ -107,7 +78,6 @@ public class MessagingActivity extends AppCompatActivity {
                     newPost.child("username").setValue(dataSnapshot.child("Name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-
                         }
                     });
                 }
