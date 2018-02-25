@@ -57,14 +57,14 @@ public class RegisterActivity extends AppCompatActivity {
                         String user_id = mAuth.getCurrentUser().getUid();
                         final DatabaseReference current_user_db = mDatabase.child(user_id);
                         current_user_db.child("Name").setValue(name_content);
-                        current_user_db.child("Age").setValue("23");
+                        current_user_db.child("Age").setValue("22");
                         current_user_db.child("Target_Age").setValue("20,30");
                         current_user_db.child("Target_Distance").setValue("15");
                         current_user_db.child("Location").setValue("Long: 55.12343 Lat: 23.1234123");
-                        current_user_db.child("Bio").setValue("I'm a senior studying CS at UTD and I really like eating salads. Cooking is my favorite past time and I went to culinary school so I'm guaranteed to make you a great dinner.");
-                        current_user_db.child("Gender").setValue("Male");
-                        current_user_db.child("Target_Gender").setValue("Female, Nonbinary");
-                        current_user_db.child("Interests").setValue("League of Legends, Gym, Street Wear, Classic Novels, Guitar, Eating Out");
+                        current_user_db.child("Bio").setValue("Hey! I love hackathons so I'm looking for more people to attend them with. If you love developing awesome stuff then lot's get together and put our minds to work!");
+                        current_user_db.child("Gender").setValue("Female");
+                        current_user_db.child("Target_Gender").setValue("Female");
+                        current_user_db.child("Interests").setValue("hackathons, singing, eating");
 
 
                         startActivity(new Intent(RegisterActivity.this,Profile.class));
